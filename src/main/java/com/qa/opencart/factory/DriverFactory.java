@@ -56,11 +56,12 @@ public class DriverFactory {
 		}
 		else {
 			System.out.println("Please enter the correct browser name..");
+			throw new FrameworkException("no browser found exception");
 		}
 		
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
-		getDriver().get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("url").trim());
 		return getDriver();
 		}
 	
